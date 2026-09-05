@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Politica de Confidențialitate — Tabata Timer</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+  :root {
+    --bg: #faf9fc;
+    --surface: #ffffff;
+    --border: #e6e1ee;
+    --ink: #241f2e;
+    --ink-soft: #574f68;
+    --accent: #ff6a3d;
+    --accent-ink: #c8461f;
+    --accent-soft: #fff0ea;
+    --mono-label: #8a80a3;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #17141f;
+      --surface: #1e1a29;
+      --border: #322c42;
+      --ink: #efedf5;
+      --ink-soft: #b8b0cc;
+      --accent: #ff9169;
+      --accent-ink: #ffb597;
+      --accent-soft: #2e2030;
+      --mono-label: #8a80a3;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #17141f;
+    --surface: #1e1a29;
+    --border: #322c42;
+    --ink: #efedf5;
+    --ink-soft: #b8b0cc;
+    --accent: #ff9169;
+    --accent-ink: #ffb597;
+    --accent-soft: #2e2030;
+    --mono-label: #8a80a3;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body { margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    line-height: 1.65;
+    display: flex;
+    justify-content: center;
+  }
+
+  main {
+    width: 100%;
+    max-width: 760px;
+    padding: 4rem 1.5rem 6rem;
+  }
+
+  header.hero {
+    margin-bottom: 3.5rem;
+  }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mono-label);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .eyebrow .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex: none;
+  }
+
+  h1 {
+    font-family: "Fraunces", Georgia, serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-size: clamp(2.1rem, 5vw, 2.9rem);
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    margin: 0 0 0.9rem;
+    color: var(--ink);
+  }
+
+  .lede {
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    max-width: 58ch;
+    margin: 0;
+  }
+
+  .meta {
+    margin-top: 1.6rem;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.78rem;
+    color: var(--mono-label);
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  nav.toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.3rem 1.5rem;
+    margin-bottom: 3.2rem;
+  }
+
+  nav.toc p {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mono-label);
+    margin: 0 0 0.8rem;
+  }
+
+  nav.toc ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.55rem 1.5rem;
+  }
+
+  nav.toc a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 0.92rem;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s, color 0.15s;
+  }
+
+  nav.toc a:hover, nav.toc a:focus-visible {
+    color: var(--accent-ink);
+    border-color: var(--accent);
+  }
+
+  section {
+    padding: 2.4rem 0;
+    border-top: 1px solid var(--border);
+    scroll-margin-top: 1.5rem;
+  }
+
+  section:first-of-type { border-top: none; padding-top: 0; }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.9rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .section-num {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.85rem;
+    color: var(--accent);
+    flex: none;
+  }
+
+  h2 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+    letter-spacing: -0.005em;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  section p {
+    margin: 0 0 1rem;
+    max-width: 66ch;
+    color: var(--ink);
+  }
+
+  section p.soft { color: var(--ink-soft); }
+
+  section ul {
+    margin: 0 0 1rem;
+    padding-left: 1.3rem;
+    max-width: 64ch;
+  }
+
+  section li { margin-bottom: 0.5rem; }
+
+  .callout {
+    background: var(--accent-soft);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.1rem 1.3rem;
+    margin: 1.2rem 0;
+    font-size: 0.95rem;
+  }
+
+  .callout strong { color: var(--accent-ink); }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0 1.4rem;
+    font-size: 0.92rem;
+  }
+
+  table caption {
+    text-align: left;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mono-label);
+    margin-bottom: 0.6rem;
+  }
+
+  th, td {
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  th {
+    font-weight: 600;
+    color: var(--ink-soft);
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .wrap-table { overflow-x: auto; }
+
+  a.inline {
+    color: var(--accent-ink);
+  }
+
+  footer {
+    margin-top: 3rem;
+    padding-top: 1.8rem;
+    border-top: 1px solid var(--border);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.78rem;
+    color: var(--mono-label);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  @media (max-width: 560px) {
+    nav.toc ol { grid-template-columns: 1fr; }
+    footer { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<main>
+  <header class="hero">
+    <p class="eyebrow"><span class="dot"></span>Tabata Timer — document legal</p>
+    <h1>Politica de confidențialitate</h1>
+    <p class="lede">Cum colectează, folosește și protejează aplicația Tabata Timer - HIIT Workout datele tale de antrenament.</p>
+    <div class="meta">
+      <span>Ultima actualizare: 5 septembrie 2026</span>
+      <span>Aplicabilă în: România</span>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Cuprins">
+    <p>Cuprins</p>
+    <ol>
+      <li><a href="#date-colectate">1. Ce date colectăm</a></li>
+      <li><a href="#stocare">2. Unde sunt stocate datele</a></li>
+      <li><a href="#distribuire">3. Cu cine distribuim date</a></li>
+      <li><a href="#securitate">4. Securitate și backup</a></li>
+      <li><a href="#drepturi">5. Drepturile tale</a></li>
+      <li><a href="#copii">6. Copii</a></li>
+      <li><a href="#contact">7. Contact</a></li>
+    </ol>
+  </nav>
+
+  <section id="date-colectate">
+    <div class="section-head"><span class="section-num">01</span><h2>Ce date colectăm</h2></div>
+    <p>Tabata Timer este un timer de antrenament tip Tabata/HIIT, cu istoric și gamification. Colectăm doar datele pe care le introduci tu, direct în aplicație:</p>
+    <ul>
+      <li><strong>Setările antrenamentului</strong> — durate interval, număr de runde, lista de exerciții, culoare ecran, preferințe de voce și muzică.</li>
+      <li><strong>Istoricul antrenamentelor</strong> — data, ora, durata, dacă ai dus antrenamentul până la capăt, și notițele opționale pe care le adaugi (ex. kilograme folosite, cum te-ai simțit).</li>
+      <li><strong>Medaliile deblocate</strong> — ce recompense ai obținut și când.</li>
+    </ul>
+    <p class="soft">Nu cerem cont, nu cerem nume, e-mail sau alte date de identitate, și nu colectăm date de localizare sau publicitate.</p>
+  </section>
+
+  <section id="stocare">
+    <div class="section-head"><span class="section-num">02</span><h2>Unde sunt stocate datele</h2></div>
+    <p>Toate datele de mai sus sunt salvate <strong>exclusiv local, pe dispozitivul tău</strong>. Aplicația nu are un server propriu, nu folosește un cont online și nu trimite automat nimic către internet. Dacă alegi un fișier audio de pe telefon pentru muzică de fundal, acesta este redat local și nu este niciodată încărcat nicăieri.</p>
+  </section>
+
+  <div class="wrap-table">
+  <table>
+    <caption>Rezumat pe categorii de date</caption>
+    <thead>
+      <tr><th>Categorie</th><th>Unde e stocată</th><th>Este distribuită?</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Setări antrenament</td><td>Local, pe dispozitiv</td><td>Nu</td></tr>
+      <tr><td>Istoric antrenamente + notițe</td><td>Local, pe dispozitiv</td><td>Nu, decât dacă exporți tu manual un backup</td></tr>
+      <tr><td>Medalii deblocate</td><td>Local, pe dispozitiv</td><td>Doar dacă alegi tu să distribui imaginea unei medalii</td></tr>
+      <tr><td>Fișier de backup (dacă îl exporți)</td><td>Fișierul/canalul ales de tine la export</td><td>Nu, decât dacă îl trimiți tu manual</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <section id="distribuire">
+    <div class="section-head"><span class="section-num">03</span><h2>Cu cine distribuim date</h2></div>
+    <p>Nu vindem, nu închiriem și nu distribuim automat datele tale către nimeni. Aplicația nu folosește rețele de publicitate și nu integrează servicii de analytics care urmăresc utilizatori. Singurele momente în care datele tale ies din aplicație sunt acțiuni pe care le declanșezi explicit tu:</p>
+    <ul>
+      <li><strong>Export backup</strong> — creează un fișier cu setările, istoricul și medaliile tale, și deschide meniul de distribuire al telefonului ca să alegi tu unde îl trimiți (ex. e-mail, aplicație de mesaje, stocare cloud personală).</li>
+      <li><strong>Distribuirea unei medalii</strong> — generează o imagine cu medalia deblocată, pe care o poți trimite prin același meniu de distribuire, doar când apeși butonul „Share”.</li>
+    </ul>
+  </section>
+
+  <section id="securitate">
+    <div class="section-head"><span class="section-num">04</span><h2>Securitate și backup</h2></div>
+    <p>Fișierul de backup generat de aplicație <strong>nu este criptat și nu este protejat cu parolă</strong> — este un fișier simplu, creat local, pe care tu decizi unde îl trimiți sau îl păstrezi. Tratează-l ca orice alt document personal: nu îl trimite unor persoane sau servicii în care nu ai încredere.</p>
+    <p class="soft">Poți șterge definitiv toate datele aplicației oricând, dezinstalând aplicația de pe telefon.</p>
+  </section>
+
+  <section id="drepturi">
+    <div class="section-head"><span class="section-num">05</span><h2>Drepturile tale</h2></div>
+    <p>Deoarece toate datele sunt stocate local, ai control direct asupra lor: le poți vedea oricând în aplicație (secțiunea Istoric), le poți exporta printr-un backup, sau le poți șterge complet dezinstalând aplicația. Dacă ai întrebări despre datele tale, ne poți scrie la adresa de contact de mai jos.</p>
+  </section>
+
+  <section id="copii">
+    <div class="section-head"><span class="section-num">06</span><h2>Copii</h2></div>
+    <p>Aplicația nu este destinată în mod special copiilor și nu colectează cu bună știință date de la persoane sub 16 ani — de altfel, aplicația nu colectează date de identitate de la nimeni, indiferent de vârstă.</p>
+  </section>
+
+  <section id="contact">
+    <div class="section-head"><span class="section-num">07</span><h2>Contact</h2></div>
+    <p>Pentru întrebări legate de această politică de confidențialitate, ne poți scrie la <a class="inline" href="mailto:easydevcoding@gmail.com">easydevcoding@gmail.com</a>.</p>
+  </section>
+
+  <footer>
+    <span>Tabata Timer - HIIT Workout</span>
+    <span>com.easydevcoding.tabata_timer</span>
+  </footer>
+</main>
+</body>
+</html>

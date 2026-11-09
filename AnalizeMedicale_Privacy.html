@@ -276,7 +276,7 @@
     <h1>Politica de confidențialitate</h1>
     <p class="lede">Cum colectează, folosește și protejează aplicația Analize Medicale datele tale, inclusiv rezultatele analizelor medicale pe care le scanezi.</p>
     <div class="meta">
-      <span>Ultima actualizare: 1 septembrie 2026</span>
+      <span>Ultima actualizare: 9 noiembrie 2026</span>
       <span>Aplicabilă în: România</span>
     </div>
   </header>
@@ -285,7 +285,7 @@
     <p>Cuprins</p>
     <ol>
       <li><a href="#date-colectate">1. Ce date colectăm</a></li>
-      <li><a href="#procesare-ai">2. Procesarea cu Claude (Anthropic)</a></li>
+      <li><a href="#procesare">2. Cum sunt citite documentele</a></li>
       <li><a href="#stocare">3. Unde sunt stocate datele</a></li>
       <li><a href="#distribuire">4. Cu cine distribuim date</a></li>
       <li><a href="#securitate">5. Securitate și backup</a></li>
@@ -301,23 +301,28 @@
     <ul>
       <li><strong>Documente medicale</strong> — pozele sau fișierele PDF ale buletinelor de analize pe care le scanezi sau le imporți.</li>
       <li><strong>Date de sănătate extrase din acestea</strong> — nume analiză, valoare, unitate de măsură, interval de referință, dată, cabinet/laborator emitent.</li>
+      <li><strong>Notițe proprii</strong> — textul pe care îl scrii tu în câmpul „Alte detalii” al unei analize.</li>
       <li><strong>Preferințe locale de aplicație</strong> — cabinete medicale uniformizate, setări de afișare.</li>
     </ul>
-    <p class="soft">Nu cerem cont, nu cerem nume, CNP sau alte date de identitate, și nu colectăm date de localizare sau publicitate.</p>
+    <p>Aplicația folosește <strong>camera</strong> doar ca să fotografiezi buletinele de analize; fotografiile rămân pe telefon. Pentru PDF-uri, poze sau foldere, aplicația primește acces doar la fișierele sau folderul pe care îl alegi tu, prin selectorul de fișiere al Android.</p>
+    <p class="soft">Nu cerem cont, nu cerem nume, CNP sau alte date de identitate, și nu colectăm date de localizare sau publicitate. Noi, ca dezvoltator, nu primim niciuna dintre aceste date.</p>
   </section>
 
-  <section id="procesare-ai">
-    <div class="section-head"><span class="section-num">02</span><h2>Procesarea cu Claude (Anthropic)</h2></div>
-    <p>Pentru a extrage automat valorile dintr-un buletin scanat, imaginea sau PDF-ul documentului este trimisă către <strong>API-ul Claude, operat de Anthropic PBC</strong>, exclusiv în scopul de a citi și structura textul analizelor medicale conținute în document.</p>
+  <section id="procesare">
+    <div class="section-head"><span class="section-num">02</span><h2>Cum sunt citite documentele</h2></div>
+    <p>Valorile din buletinele de analize sunt extrase <strong>direct pe telefonul tău, fără conexiune la internet</strong>. Aplicația citește textul din PDF sau, pentru poze și scanări, folosește recunoașterea de text (OCR) care rulează local pe dispozitiv, apoi identifică analizele cu reguli proprii.</p>
     <div class="callout">
-      <strong>Ce înseamnă asta concret:</strong> conținutul documentului pe care îl scanezi (deci implicit date despre sănătatea ta) este transmis printr-o conexiune criptată către serverele Anthropic pentru procesare, apoi rezultatul structurat revine în aplicație. Anthropic procesează aceste date ca parte a serviciului de API și nu le folosește pentru a antrena modele, conform politicilor lor comerciale de API.
+      <strong>Ce înseamnă asta concret:</strong> documentele tale și valorile extrase din ele <strong>nu sunt trimise către niciun server</strong>, nici al nostru, nici al unui terț. Nu folosim servicii de inteligență artificială din cloud pentru citirea documentelor.
     </div>
-    <p class="soft">Poți consulta politica de confidențialitate a Anthropic la <a class="inline" href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">anthropic.com/legal/privacy</a>.</p>
+    <p>Citirea automată poate greși. Verifică valorile importate și editează-le sau introdu-le manual dacă este nevoie.</p>
+    <div class="callout">
+      <strong>Versiuni anterioare:</strong> până la versiunea 1.2.1 inclusiv, aplicația putea trimite documentul ales către API-ul Claude (Anthropic PBC) pentru citire, numai după acordul tău explicit, la fiecare încărcare. Începând cu versiunea 1.3.0 această funcție a fost eliminată, iar documentele nu mai părăsesc telefonul. Anthropic nu folosea datele primite prin API pentru antrenarea modelelor, conform politicilor lor comerciale; politica lor este la <a class="inline" href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">anthropic.com/legal/privacy</a>.
+    </div>
   </section>
 
   <section id="stocare">
     <div class="section-head"><span class="section-num">03</span><h2>Unde sunt stocate datele</h2></div>
-    <p>După extragere, toate datele analizelor și documentele originale sunt salvate <strong>local, pe dispozitivul tău</strong>. Aplicația nu are un server propriu și nu păstrează o copie a datelor tale în afara telefonului, cu excepția transmiterii temporare descrise mai sus, necesară pentru citirea automată.</p>
+    <p>După extragere, toate datele analizelor și documentele originale sunt salvate <strong>local, pe dispozitivul tău</strong>. Aplicația nu are un server propriu și nu păstrează nicio copie a datelor tale în afara telefonului. La actualizarea aplicației datele rămân pe telefon; la dezinstalare ele sunt șterse împreună cu aplicația.</p>
   </section>
 
   <div class="wrap-table">
@@ -327,8 +332,9 @@
       <tr><th>Categorie</th><th>Unde e stocată</th><th>Este distribuită?</th></tr>
     </thead>
     <tbody>
-      <tr><td>Documente scanate (poze/PDF)</td><td>Local, pe dispozitiv</td><td>Trimisă temporar la Anthropic, pentru citire</td></tr>
+      <tr><td>Documente scanate (poze/PDF)</td><td>Local, pe dispozitiv</td><td>Nu</td></tr>
       <tr><td>Valori analize extrase</td><td>Local, pe dispozitiv</td><td>Nu</td></tr>
+      <tr><td>Notițe proprii („Alte detalii”)</td><td>Local, pe dispozitiv</td><td>Nu, decât în PDF-ul pe care îl exporți tu</td></tr>
       <tr><td>Backup criptat (dacă îl exporți)</td><td>Fișierul ales de tine la export</td><td>Nu, decât dacă îl trimiți tu manual</td></tr>
     </tbody>
   </table>
@@ -336,18 +342,19 @@
 
   <section id="distribuire">
     <div class="section-head"><span class="section-num">04</span><h2>Cu cine distribuim date</h2></div>
-    <p>Nu vindem și nu închiriem datele tale către terți. Singura distribuire de date are loc către Anthropic, descrisă la secțiunea 2, strict pentru funcția de citire automată a documentelor. Nu folosim rețele de publicitate și nu integrăm servicii de analytics care urmăresc utilizatori.</p>
+    <p>Nu vindem, nu închiriem și nu transmitem datele tale către terți: aplicația nu trimite documentele, valorile sau notițele tale nicăieri. Nu folosim rețele de publicitate și nu integrăm servicii de analytics care urmăresc utilizatori.</p>
+    <p>Singura comunicare cu exteriorul este verificarea, prin Google Play, dacă există o versiune nouă a aplicației (și, la cererea ta, deschiderea paginii aplicației în Google Play pentru evaluare). Aceasta este gestionată de Google, conform <a class="inline" href="https://policies.google.com/privacy" target="_blank" rel="noopener">politicii de confidențialitate Google</a>, și nu include datele tale medicale.</p>
   </section>
 
   <section id="securitate">
     <div class="section-head"><span class="section-num">05</span><h2>Securitate și backup</h2></div>
-    <p>Aplicația oferă o funcție opțională de <strong>export de backup criptat</strong>, protejat cu o parolă stabilită de tine. Fișierul de backup este creat local și trimis doar prin canalul pe care îl alegi tu (ex. salvare, e-mail, stocare cloud personală) — aplicația nu îl încarcă automat nicăieri.</p>
-    <p>Poți șterge definitiv toate datele din aplicație oricând, din Setări → Zonă periculoasă.</p>
+    <p>Aplicația oferă o funcție opțională de <strong>export de backup criptat</strong>, protejat cu o parolă stabilită de tine. Backup-ul este criptat cu AES-256 (cheia derivată din parola ta, prin PBKDF2). Fișierul este creat local și trimis doar prin canalul pe care îl alegi tu (ex. salvare, e-mail, stocare cloud personală) — aplicația nu îl încarcă automat nicăieri. Dacă uiți parola, backup-ul nu poate fi recuperat.</p>
+    <p>Poți șterge definitiv toate datele din aplicație oricând, din „Mai multe” → „Zonă periculoasă” → „Șterge toate datele”.</p>
   </section>
 
   <section id="drepturi">
     <div class="section-head"><span class="section-num">06</span><h2>Drepturile tale</h2></div>
-    <p>Deoarece toate datele sunt stocate local, ai control direct asupra lor: le poți vizualiza, edita sau șterge oricând din interfața aplicației, fără să fie nevoie să ne contactezi. Dacă ai întrebări despre modul în care documentele sunt procesate prin Claude API, ne poți scrie la adresa de contact de mai jos.</p>
+    <p>Deoarece toate datele sunt stocate local, ai control direct asupra lor: le poți vizualiza, edita sau șterge oricând din interfața aplicației, fără să fie nevoie să ne contactezi. Dacă ai întrebări despre modul în care sunt tratate datele tale, ne poți scrie la adresa de contact de mai jos.</p>
   </section>
 
   <section id="copii">
